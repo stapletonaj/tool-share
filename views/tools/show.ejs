@@ -1,0 +1,65 @@
+<% include ../partials/header %>
+
+
+<div class="ui container main">
+    <div class="ui stackable grid">
+        <div class="ui five wide centered column">
+            <div class="ui fluid card">
+                <div class="image">
+                    <img src="<%=tool.img%>"></img>
+                </div>
+                <div class="content">
+                    <h1><strong><%=tool.name%></strong></h1>
+                    <div class="meta right floated">
+                        <span class="date">Added on <%=tool.date.toDateString()%></span>
+                    </div>
+                    <div class="description">
+                       Location: <%=tool.loc%>
+                    </div>
+                    <div class="description">
+                     Owned by: <a href="/user/<%=tool.ownedBy.id%>"><%= tool.ownedBy.username %></a>
+                    </div>
+                </div>
+                <% if(currentUser && !tool.ownedBy.id.equals(currentUser._id)){ %>
+                    <a href="/tools/<%=tool._id%>/requests/new" class="ui bottom attached button">
+                      <i class="add icon"></i>
+                      Request tool
+                    </a>
+                <% } else if (currentUser && tool.ownedBy.id.equals(currentUser._id)){ %>
+                    <a class="ui bottom attached active button">
+                        <i class="thumbs up outline icon"></i>
+                        This is your tool
+                    </a>
+                <% } else { %>
+                    <a href="/login" class="ui bottom attached button">
+                        <i class="sign in alternate icon"></i>
+                        Log in to request tool
+                    </a>
+                <% } %>
+            </div>
+
+            <div class="ui secondary segment">
+                <div class="ui center aligned grid">
+                    <% if(currentUser && tool.ownedBy.id.equals(currentUser._id)){ %>
+                        <div class="two column row">
+                            <div class="ui column">
+                                <a class="ui primary button fluid" href="/tools/<%=tool._id%>/edit">Edit</a>
+                            </div>
+                            <div class="ui column">
+                                <form id="deleteBtn" action="/tools/<%=tool._id%>?_method=DELETE" method="POST">
+                                    <button class="ui red button fluid" href>Delete</a>
+                                </form>
+                            </div>
+                        </div>
+                    <% } %>
+                    <div class="one column row">
+                        <a class="ui basic button" href="/">Go back</a>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </div>
+</div>
+
+
+<% include ../partials/footer %>

@@ -1,0 +1,45 @@
+<% include ./partials/header %>
+    
+
+<div class="ui main text container">
+    <div class="ui center aligned text container segment">
+        <h1 class="ui center aligned header">Oi! do you have a...?</h1>
+            <div class="ui basic segment">
+                <form action="tools/new">
+                    <div class="ui two column centered grid padded">
+                        <button class="ui primary button">
+                            Add new tool
+                        </button>
+                    </div>
+                </form>
+            </div>
+    </div>
+    <div class="ui main text segment">
+        <div class="ui center aligned page grid">
+            <div class= "ui column center aligned">
+                <div class="ui four stackable link cards">
+                    <% tools.forEach(function(tool){ %>
+                        <div class="card">
+                            <div class="content">
+                              <div class="ui header"> <%=tool.name%></div>
+                            </div>
+                            <div class="image">
+                              <img src="<%= tool.img %>">
+                            </div>
+                            <div class="extra content centered">
+                              <span class="centered">
+                                <a href="/tools/<%=tool._id%>" class="ui fluid tiny primary button">More details</a>
+                              </span>
+                              <span class="centered">
+                                Added <%=tool.date.toDateString()%> <br>
+                                <a href="/user/<%=tool.ownedBy.id%>"> Owned by <%=tool.ownedBy.username%></a>
+                              </span>
+                            </div>
+                        </div>
+                   <% }); %> 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<% include ./partials/footer %>

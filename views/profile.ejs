@@ -1,0 +1,56 @@
+<% include ./partials/header %>
+
+<div class="ui main container">
+    <div class="ui stackable grid">
+        <div class="ui eight wide centered column">
+            <div class="ui center aligned segment">
+                <div class="ui header">
+                    <h1><%=user.username%></h1>
+                </div>
+                <h3 class="ui header">Own tools:</h3>
+                <div class="ui three stackable cards items">
+                    <% user.ownTools.forEach(function(tool){ %>
+                        <div class="ui card">
+                            <div class="content">
+                                <div class="header"><%=tool.name%></div>
+                            </div>
+                            <div class="extra content">
+                                <a href="/tools/<%=tool.id%>" class="ui button">Go to tool</a>
+                            </div>
+                        </div>
+                    <% }); %>
+                </div>
+                
+                <div class="ui divider"></div>
+                <h3 class="ui header">Borrowed tools:</h3>
+                <% if (user.borrowedTools.length > 0){ %>
+                <div class="ui three stackable cards items">
+                    <% user.ownTools.forEach(function(tool){ %>
+                        <div class="ui card">
+                            <div class="content">
+                                <div class="header"><%=tool.name%></div>
+                            </div>
+                            <div class="extra content">
+                                <a href="/tools/<%=tool.id%>" class="ui button">Go to tool</a>
+                            </div>
+                        </div>
+                    <% }); %>
+                </div>
+                <% } else { %>
+                    <p>Nothing borrowed</p>
+                <% } %>
+            </div>
+        </div>
+        
+    </div>
+    
+    
+</div>
+
+
+
+
+
+
+
+<% include ./partials/footer %>

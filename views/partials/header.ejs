@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.css"/>
+    <link rel="stylesheet" type="text/css"  href="/stylesheets/app.css"></link>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.js"></script>
+</head>
+
+<div class="ui inverted top menu">
+  <a class="item" href="/tools"><i class="wrench icon"></i>
+    Tool Share
+  </a>
+  <a class="item">About</a>
+  
+  <% if (currentUser){ %>
+  <a class="item float right" href="/logout">Log out</a>
+  <a class="item float right" href="/user/<%=currentUser._id%>">Welcome, <%=currentUser.username%>!</a>
+  <% } else { %>
+  <a class="item float right" href="/register">Sign up</a>
+  <a class="item float right" href="/login">Log in</a>
+  <% } %>
+</div>
+
+<div class="ui container main">
+  <div class="ui grid">
+    <div class="ui six wide centered column basic segment">
+      <% if(success && success.length > 0){ %>
+      <div class="ui positive message">
+        <div class="header">
+          <%=success%>
+        </div>
+      </div>
+      <% } %>
+      
+      <% if(error && error.length > 0){ %>
+      <div class="ui negative message">
+        <div class="header">
+           <%=error%>
+        </div>
+      </div>
+      <% } %>
+    </div>
+  </div>
+</div>
+
+<body>

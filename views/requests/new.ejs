@@ -1,0 +1,23 @@
+<% include ../partials/header %>
+
+<div class="ui main text container">
+    <div class="ui center aligned stackable grid">    
+        <div class="ui six wide column segment">
+            <h1 class="ui header">Request to borrow <%=tool.name%></h1>
+            <h2 class="ui header">You are about to request to borrow <%=tool.name%> from <%=tool.ownedBy.username%></h2>
+            
+            <form>
+            <div class="ui fluid basic segment">
+                <label>Message for <%=tool.ownedBy.username%></label><br>
+                <textarea name="request[message]" placeholder="Type comment here..." required></textarea>
+            </div>
+            <input class="ui primary button" type="submit"></input>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+<% include ../partials/footer %>

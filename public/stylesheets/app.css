@@ -1,0 +1,36 @@
+.icon {
+    font-size: 1.2em !important;
+}
+
+/*.ui#content{*/
+/*  padding-top: 55px;*/
+/*} */
+
+/*.main.container {*/
+/*    margin-top: 4.0em;*/
+/*}*/
+
+.card {
+   margin: 0px;
+}
+
+h1 {
+    display:inline;
+}
+
+.message {
+    margin-top: 4.0em;
+}
+
+.menu {
+    margin-bottom: 4.0em;
+}
+
+.ui.image {
+    font-size:42;
+    }
+    
+textarea{
+    width: 50%;
+    margin: 10px;
+}

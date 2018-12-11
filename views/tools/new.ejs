@@ -1,0 +1,44 @@
+<% include ../partials/header %>
+
+<div class="ui main text container">
+    <div class="column">
+        <div class="ui center aligned page stackable grid">
+            <div class="ui ten wide column form segment">
+                <form action="/tools" method="POST">
+                    <div class="ui left aligned segment">
+                        <h4 class="ui dividing header">Add new tool</h4>
+                        <div class="field">
+                            <div class="ui input fluid bottom aligned">
+                                <label>Tool name</label>
+                                 <input type="text" name="tool[name]" placeholder="Tool name">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="ui input fluid">
+                                <label>Image URL</label>
+                                <input type="text" name="tool[img]" placeholder="Tool image link">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="ui input fluid">
+                                <label>Tool location</label>
+                                <input type="text" name="tool[loc]" placeholder="Tool Location">
+                        </div>
+                        </div>
+                        <button type="submit" class="ui primary button">
+                            Submit
+                        </button>
+                    </form>
+                </div>
+                <div class="ui secondary segment">
+                    <a class="ui basic button" href="/">Go back</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<% include ../partials/footer %>
